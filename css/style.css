@@ -1,0 +1,217 @@
+
+.reviews {
+  background-color: rgba(255, 204, 102, 0.12);
+  position: relative;
+  padding: 20px; 
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  /* можно убрать  */
+  /* width: 960px;
+  height: 1218px;
+  top: 8544px; */
+
+
+}
+
+.reviews__title {
+  text-align: center;
+  font-size: 80px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #FFCC66;
+  margin-top: 18px;
+  opacity: 50%;
+}
+
+/* Основной контейнер для карусели */
+.reviews__carousel {
+  display: flex;
+  gap: 45px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 30px;
+  overflow-x: scroll; 
+  overflow-y: hidden; 
+  position: relative;
+}
+
+.reviews__carousel--second-row {
+  margin-top: 32px;
+}
+
+/* Убираем скроллбар */
+.reviews__carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews__item {
+  flex-shrink: 0;
+  width: 100%; 
+  display: flex;
+  justify-content: center; 
+}
+
+.review {
+  display: flex;
+  align-items: center;
+  gap: 76px;
+  position: relative;
+}
+
+/* Фото ученика */
+.review__photo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviews__photo {
+  width: 370px;
+  height: 370px;
+  border-radius: 50%;
+}
+
+.review__name {
+  font-weight: bold;
+  color: #000000;
+  font-size: 27px;
+  margin-top: 20px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+/* Контейнер с текстом отзыва */
+.review__text-container {
+  background-color: #fff;
+  border-radius: 80px;
+  padding: 20px;
+  box-shadow: 0px 20px 4px 0px #7F68AE33;
+  border: 1px solid #66339940;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  height: auto;
+  z-index: 2;
+}
+
+.review__text-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: 40px;
+  width: 0px;
+  height: 100px;
+  border-left: 30px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 100px solid #ffffff;
+  border-radius: 40%;
+  z-index: -1;
+}
+
+.review__text-wrapper-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  right: 40px;
+  width: 0px;
+  height: 100px;
+  border-left: 150px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 100px solid #ffffff;
+  border-radius: 40%;
+  z-index: -1;
+}
+
+/* Стили для текста отзыва */
+.review__text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+/* Затемнение по бокам для одного отзыва */
+.reviews::before,
+.reviews::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.reviews::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.reviews::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+
+
+/* Блок для стрелок и кнопок */
+.reviews__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22.36px; 
+  position: relative;
+  bottom: 20px;  
+  width: 100%;
+}
+
+/* Стили для стрелок (полигонов) */
+.reviews__arrow {
+  width: 45px;
+  height: 45px;
+  background: #F8EADD;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  cursor: pointer;
+  opacity: 1;
+
+}
+
+.reviews__arrow--left {
+  transform: rotate(-90deg); 
+}
+
+.reviews__arrow--right {
+  transform: rotate(90deg); 
+}
+
+/* Изменение цвета стрелок при наведении */
+.reviews__arrow--left:hover,
+.reviews__arrow--right:hover {
+  background-color: #F0D4BB;
+}
+
+
+
+/* Стили для кнопок-эллипсов */
+.reviews__dots {
+  display: flex;
+  gap: 22.36px;
+}
+
+.reviews__dot {
+  width: 20px;
+  height: 20px;
+  background-color: #F8EADD;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 1;
+  transition: background-color 0.3s ease, opacity 0.7s ease;
+}
+
+
+.reviews__dot:hover,
+.reviews__dot.active {
+  background-color: #F0D4BB;
+  opacity: 0.8;
+}
